@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Bot Challenge</title>
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        
+        
+        #messages {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        p { max-width: 70%; padding: 10px; border-radius: 10px; margin: 0; position: relative; }
+        p.user { align-self: flex-end; background-color: #dcf8c6; }
+        p.bot { align-self: flex-start; background-color: #ffffff; }
+        
+        span { display: block; font-size: 0.7em; color: #888; margin-bottom: 4px; }
+        .input-area { display: flex; gap: 10px; width: 100%; max-width: 500px; }
+        input { flex-grow: 1; padding: 10px; }
+        button { padding: 10px 20px; cursor: pointer; background: #075e54; color: white; border: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <h2>Chat Bot 🤖</h2>
+
+    <div id="messages"></div>
+
+    <div class="input-area">
+        <input type="text" id="userInput" placeholder="Digite sua mensagem..." onkeypress="handleEnter(event)">
+        <button onclick="sendMessage()">Enviar</button>
+    </div>
+
+<script>
+    
+    function appendMessage(sender, text) {
+        const msgDiv = document.getElementById('messages');
+        const p = document.createElement('p');
+        p.className = sender;
+        p.innerHTML = `<span>${sender === 'user' ? 'Você' : 'Bot'}</span>${text}`;
+        msgDiv.appendChild(p);
+        msgDiv.scrollTop = msgDiv.scrollHeight; 
+    }
+
+    
+    async function sendMessage() {
+        const input = document.getElementById('userInput');
+        const text = input.value.trim();
+
+        if (!text) return;
+
+
+        appendMessage('user', text);
+        input.value = '';
+
+        try {
+           
+            const response = await fetch('http://localhost:3000/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: text })
+            });
+
+            const data = await response.json();
+            
+            
+            setTimeout(() => {
+                appendMessage('bot', data.text);
+            }, 500);
+
+        } catch (error) {
+            console.error("Erro:", error);
+            appendMessage('bot', "Erro: O servidor está desligado! 🛑");
+        }
+    }
+
+    function handleEnter(event) {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
+    }
+</script>
+</body>
+</html>

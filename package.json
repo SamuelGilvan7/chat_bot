@@ -1,0 +1,21 @@
+{
+  "name": "chat-bot-challenge",
+  "version": "1.0.0",
+  "description": "Desafio de Chat Bot Simples",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "backend/index.js",
+  "scripts": {
+    "start": "node backend/index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "jest": "^30.3.0",
+    "supertest": "^7.2.2"
+  }
+}
