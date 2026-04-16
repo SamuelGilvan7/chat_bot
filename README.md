@@ -4,6 +4,7 @@ Projeto de um chatbot simples com backend em Node.js e frontend em HTML + JavaSc
 
 
 📁 Estrutura organizada (simples)
+```
 chat-bot-challenge/
 │
 ├── backend/
@@ -20,7 +21,7 @@ chat-bot-challenge/
 ├── package.json
 ├── package-lock.json
 └── README.md
-
+````
 
 ## 🚀 Tecnologias Utilizadas
 
