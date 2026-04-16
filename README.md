@@ -3,17 +3,19 @@
 Projeto de um chatbot simples com backend em Node.js e frontend em HTML + JavaScript.
 
 
-## 📁 Estrutura do Projeto
+📁 Estrutura organizada (simples)
 chat-bot-challenge/
 │
 ├── backend/
-│ ├── server.js
-│ ├── index.js
-│ └── chat.test.js
+│   ├── server.js        # sobe o servidor
+│   ├── routes.js        # rotas da API
+│   ├── chatbot.js       # lógica do bot
+│   └── chat.test.js     # testes
 │
 ├── frontend/
-│ ├── index.html
-│ └── script.js
+│   ├── index.html       # interface
+│   ├── script.js        # lógica do frontend
+│   └── style.css        # estilos (opcional)
 │
 ├── package.json
 ├── package-lock.json
