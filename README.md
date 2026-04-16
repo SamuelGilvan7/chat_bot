@@ -34,10 +34,11 @@ chat-bot-challenge/
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/chat-bot-challenge.git
+1. git clone https://github.com/seu-usuario/chat-bot-challenge.git
 
 2. Instale as dependências
 npm install
+
 3. Inicie o servidor
 node backend/server.js
 
