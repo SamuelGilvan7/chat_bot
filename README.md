@@ -35,3 +35,17 @@ chat-bot-challenge/
 
 ```bash
 git clone https://github.com/seu-usuario/chat-bot-challenge.git
+
+2. Instale as dependências
+npm install
+3. Inicie o servidor
+node backend/server.js
+
+ou (se tiver script):
+
+npm start
+4. Abra o frontend
+
+Abra o arquivo:
+
+frontend/index.html
